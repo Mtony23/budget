@@ -1,0 +1,383 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance:textfield;
+}
+
+.app {
+	margin: 0 auto;
+	font-family: 'Red Rose', cursive;
+}
+
+.title {
+	padding: 20px 0;
+	text-align: center;
+	font-size: 32px;
+	background: #4CAF50;
+	box-shadow: 0px 1.5px 20px 0 #000;
+}
+
+.main {
+	display: flex;
+	margin: 0% 10%;
+	padding-top: 40px;
+}
+
+.choose-expenses, .optional, .count-budget, .choose-income-label {
+	margin: 20px 0px;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;   
+}
+
+.expenses-item,  .choose-income, .choose-sum, .choose-percent, ::placeholder {
+	height: 35px;
+	width: calc((100%/2) - 4px);
+	border-radius: 2.5px;
+	border: none;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-family: 'Red Rose', cursive; 
+}
+
+#expenses_5, #expenses_6 {
+	display: none;
+}
+
+.expenses-button {
+	display: flex;
+	justify-content: space-around;
+}
+				
+.expenses-item-btn, .count-budget-btn {
+	display: block;
+	margin: 20px auto;
+	padding: 5px 7px;
+	border: none;
+	border-radius: 2.5px;
+	background: #fff;
+	color: #000;
+	font-weight: 500;
+	font-size: 13px;
+	cursor: pointer;
+	font-family: 'Red Rose', cursive;
+}
+
+.expenses-item-btn:hover, .count-budget-btn:hover {
+	color: #fff;
+	background-color: #0069d9;
+	border-color: #0062cc;
+}
+
+input {
+	background-color: rgba(0,0,0,.6);
+	color: #fff;
+	outline: none;
+	border: none;
+}
+
+button {
+	outline: none;
+}
+		
+.choose-income {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+		
+.checksavings {
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}    
+		
+.choose-sum, .choose-percent {
+	width: 30%;
+	margin: 15px 10px;
+}
+
+.btn {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.start, .reset {
+	display: block;
+	margin: 0 auto;
+	border: none;
+	border-radius: 2.5px;
+	background: #fff;
+	color: #000;
+	font-weight: 100;
+	font-size: 12px;
+	cursor: pointer;
+	padding: 5px 10px;
+	margin-top: 30px;
+	font-size: 18px;
+	font-family: 'Red Rose', cursive;
+}
+
+.start:hover {
+	color: #fff;
+	background-color: #0069d9;
+	border-color: #0062cc;
+}
+
+.reset:hover {
+	color: #fff;
+	background-color: #c82333;
+	border-color: #bd2130;
+}
+		
+.result {
+	width: 50%;
+}
+
+.result-table {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 90%;
+	min-height: 400px;
+	margin: 0 auto;
+	margin-top: 42px;
+	padding: 25px;
+	box-shadow: 0px 1.5px 20px 0 #000;
+	background: #4CAF50;
+	border-radius: 7px;
+}
+
+.budget, .budget-value, .daybudget, .daybudget-value, .level, .level-value, .expenses, .expenses-value, .optionalexpenses, .optionalexpenses-value, .income, .income-value, .monthsavings, .monthsavings-value, .yearsavings,
+.yearsavings-value {
+	width: 48%;
+	margin-top: 10px;
+	min-height: 40px;
+	padding: 10px;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.budget-value, .daybudget-value, .level-value, .expenses-value, .optionalexpenses-value, .income-value, 
+.monthsavings-value, .yearsavings-value {
+	color: #fff;
+	word-break: break-word;
+}
+
+.data {
+	box-shadow: 0px 1.5px 20px 0 #000;
+	padding: 20px;
+	margin-right: 40px;
+	background: #4CAF50;
+	border-radius: 7px;
+}
+
+.time-data {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 40px;
+	box-shadow: 0px 1.5px 20px 0 #000;
+	background: rgba(68, 0, 255, 0.664);
+}
+
+.overlay {
+	position: fixed;
+	display: none;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 3;
+	font-family: 'Red Rose', cursive;
+}
+
+.overlay .popup {
+	position: fixed;
+	z-index: 4;
+	left: 50%;
+	top: 150px;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.overlay .popup-form {
+	border-radius: 5px;
+	background: #fff;
+	padding: 20px 20px;
+}
+
+.overlay .popup-form-header {
+	padding: 0;
+	font-weight: 400;
+	line-height: 27px;
+	font-size: 18px;
+	text-align: center;
+	color: #000;
+}
+
+.overlay .popup-form__label {
+	display: block;
+	margin-top: 23px;
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.overlay .popup-form__input {
+	width: 100%;
+	height: 40px;
+	margin-top: 17px;
+	color: #fff;
+	text-align: center;
+	font-family: 'Red Rose', cursive;
+	font-size: 17px;
+}
+
+.overlay .popup-form__btn {
+	background-color: #0069d9;
+	border-color: #0062cc;
+	color: #fff;
+	cursor: pointer;
+	margin-top: 40px;
+	border-radius: .25rem;
+	font-family: 'Red Rose', cursive;
+	
+}
+
+.overlay .popup-form_btn {
+	color: #fff;
+	background-color: #c82333;
+	border-color: #bd2130;
+	cursor: pointer;
+	margin-top: 40px;
+	padding: 10px;
+	border-radius: .25rem;
+	font-family: 'Red Rose', cursive;
+}
+
+.modal-footer {
+	display: flex;
+	justify-content: space-around;
+	margin-top: -25px;
+}
+
+.p_close {
+	cursor: pointer;
+	font-size: 30px;
+	color: #fff;
+	position: fixed;
+	z-index: 4;
+	left: 50%;
+	top: 120px;
+	background: none;
+	border: none;
+	padding-left: 130px;
+}
+
+.number {
+	display: none;
+	color: red;
+	font-size: 14px;
+	padding-top: 5px;
+	text-align: center;
+}
+
+/* Media */
+@media (max-width: 1199px) {
+	.result-table {
+		padding: 0;
+	}
+}
+
+@media (max-width: 991px) {
+	.title {
+		border-radius: 7px;
+		margin: 0 5%;	
+	}
+
+	.main {
+		display: inline;
+		margin: 0% 10%;
+		padding-top: 0px;
+	}
+
+	.data {
+		margin: 5% 5%;
+	}
+
+	.result {
+		width: 100%;
+	}
+
+	.overlay .popup-form {
+		padding: 20px 20px;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.overlay .popup {
+		top: 25%;	
+	}
+
+	.p_close {
+		top: 18%;
+		left: 49%;
+	}
+
+	.overlay .popup-form {
+		padding: 20px 10px;
+	}
+}
+
+@media (max-width: 575px) {
+	label {
+		display: flex;
+		justify-content: center;
+	}
+
+	.choose-sum, .choose-percent {
+		width: 35%;
+		margin: 37px;
+		margin: 4% 33%;
+	}
+
+	.overlay .popup-form-header {
+		font-size: 16px;
+	}
+
+	.title {
+		font-size: 23px;
+	}
+
+	.overlay .popup-form__btn {
+		margin-right: 30px;
+	}
+
+	.p_close {
+		left: 44%;
+		top: 22%;
+	}
+
+	.start, .reset {
+		font-size: 14px;
+	}
+
+}
+/* /Media */
